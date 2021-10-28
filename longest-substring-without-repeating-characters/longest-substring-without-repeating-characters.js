@@ -4,24 +4,20 @@
  */
 var lengthOfLongestSubstring = function(s) {
     var longestLength = 0;
-    var findLongest = function(s) {
-        var hash = {};
-        var cur = 0;
-        for (var i = 0; i < s.length; i++) {
-            if (!hash.hasOwnProperty(s[i])) {
-                hash[s[i]] = i;
-                cur += 1;
-            } else {
-                break;
-            }
+    var left = 0;
+    var hashMap = {};
+    var curLength = 0;
+    for (var i = 0; i < s.length; i++) {
+        while (hashMap[s[i]]) {
+            delete hashMap[s[left]];
+            left++;
+            curLength--;
         }
-        if (cur > longestLength) {
-            longestLength = cur;
+        hashMap[s[i]] = 1;
+        curLength ++;
+        if (curLength > longestLength) {
+            longestLength = curLength;
         }
-                
-    }
-    for (var i = 0; i < s.length; i ++) {
-        findLongest(s.slice(i));
     }
     return longestLength;
 };
