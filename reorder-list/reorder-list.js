@@ -23,8 +23,10 @@ var reorderList = function(head) {
         } else {
             head.next = arr[i];
             head = head.next;
-            head.next = arr[arr.length - 1 - i];
-            head = head.next;
+            if (arr.length-1-i !== i) {
+                head.next = arr[arr.length - 1 - i];
+                head = head.next;
+            }
         }
     }
     head.next = null;
