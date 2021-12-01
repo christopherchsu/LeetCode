@@ -3,14 +3,6 @@
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
 var setZeroes = function(matrix) {
-    // var zeroIndices = [];
-    // for (var i = 0; i < matrix.length; i++) {
-    //     for (var j = 0; j < matrix[i].length; j++) {
-    //         if (matrix[i][j] === 0) {
-    //             zeroIndices.push([i, j]);
-    //         }
-    //     }
-    // }
     
     var setVisited = function(row, col) {
         for (var i = 0; i < matrix.length; i++) {
