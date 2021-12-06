@@ -3,17 +3,22 @@
  * @return {number}
  */
 var firstMissingPositive = function(nums) {
-    var hashMap = {};
     for (var i = 0; i < nums.length; i++) {
-        hashMap[nums[i]] = 1;
+        var idx = nums[i] - 1;
+        if (i === idx || nums[i] === nums[idx]) {
+            continue;
+        }
+        if (idx >= 0 && idx < nums.length) {
+            var temp = nums[idx];
+            nums[idx] = nums[i];
+            nums[i] = temp;
+            i--;
+        }        
     }
-    var smallest = 1;
     for (var i = 0; i < nums.length; i++) {
-        if (hashMap[smallest] === undefined) {
-            return smallest;
-        } else {
-            smallest += 1;
+        if (nums[i] !== i + 1) {
+            return i + 1;
         }
     }
-    return smallest;
+    return nums.length + 1;
 };
