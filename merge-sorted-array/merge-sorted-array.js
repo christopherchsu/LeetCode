@@ -6,7 +6,7 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
-    var nums = nums1.slice();
+    var nums = nums1.slice(0,m);
     var idx1 = 0;
     var idx2 = 0;
     var idx = 0;
