@@ -2,15 +2,13 @@
  * @param {number[]} nums
  */
 var Solution = function(nums) {
-    this.default = nums;
-    this.shuffled = nums.slice();
+    this.shuffled = nums;
 };
 
 /**
  * @return {number[]}
  */
 Solution.prototype.reset = function() {
-    this.shuffled = this.default.slice();
     return this.shuffled;
 };
 
@@ -18,13 +16,14 @@ Solution.prototype.reset = function() {
  * @return {number[]}
  */
 Solution.prototype.shuffle = function() {
-    for (var i = 0; i < this.shuffled.length; i++) {
+    var shuffled = this.shuffled.slice();
+    for (var i = 0; i < shuffled.length; i++) {
         var idx = Math.floor(Math.random()*this.shuffled.length);
-        var temp = this.shuffled[i];
-        this.shuffled[i] = this.shuffled[idx];
-        this.shuffled[idx] = temp;
+        var temp = shuffled[i];
+        shuffled[i] = shuffled[idx];
+        shuffled[idx] = temp;
     }
-    return this.shuffled;
+    return shuffled;
 };
 
 /** 
