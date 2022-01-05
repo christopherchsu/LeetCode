@@ -2,7 +2,7 @@
  * @param {number[]} nums
  */
 var Solution = function(nums) {
-    this.default = nums.slice();
+    this.default = nums;
     this.shuffled = nums.slice();
 };
 
