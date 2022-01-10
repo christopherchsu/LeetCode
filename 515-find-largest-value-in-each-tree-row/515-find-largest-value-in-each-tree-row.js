@@ -32,9 +32,5 @@ var largestValues = function(root) {
             }
         }
     }
-    var result = [];
-    for (var key in hashMap) {
-        result.push(hashMap[key]);
-    }
-    return result;
+    return Object.values(hashMap);
 };
