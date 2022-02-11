@@ -7,13 +7,12 @@ var containsNearbyDuplicate = function(nums, k) {
     var hashMap = {};
     for (var i = 0; i < nums.length; i++) {
         if (hashMap[nums[i]] === undefined) {
-            hashMap[nums[i]] = [i];
+            hashMap[nums[i]] = i;
         } else {
-            hashMap[nums[i]].push(i);
-            var length = hashMap[nums[i]].length;
-            if (hashMap[nums[i]][length - 1] - hashMap[nums[i]][length - 2] <= k) {
+            if (i - hashMap[nums[i]] <= k) {
                 return true;
             }
+            hashMap[nums[i]] = i;
         }
     }
     return false;
